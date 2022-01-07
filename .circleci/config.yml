@@ -1,0 +1,18 @@
+version: 2.1
+
+workflows:
+  build:
+    jobs:
+      - build:
+          context: GITHUB
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - checkout
+      - run: ./TBD.sh all
+      - run: rm -rf results && mkdir results && mv ./*.json results
+      - run: ./deploy.sh $GITHUB_TOKEN
+
