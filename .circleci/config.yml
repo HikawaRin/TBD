@@ -1,5 +1,4 @@
 version: 2.1
-
 jobs:
   build:
     machine:
@@ -8,10 +7,8 @@ jobs:
       steps:
         - checkout
         - run: ./TBD.sh all
-        - run: mkdir results && mv ./*.json results/
-	- run: ls results
-
-
+        - run: mkdir results && mv ./*.json results
+        - run: ls results
 workflows:
   build:
     jobs:
