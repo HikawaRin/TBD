@@ -4,8 +4,8 @@ workflows:
   build:
     jobs:
       - build:
-        context:
-          - GITHUB
+          context:
+            - GITHUB
 
 jobs:
   build:
