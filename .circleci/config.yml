@@ -13,6 +13,6 @@ jobs:
     steps:
       - checkout
       - run: ./TBD.sh all
-      - run: mkdir results && mv ./*.json results
+      - run: rm -rf results && mkdir results && mv ./*.json results
       - run: ./deploy.sh $GITHUB_TOKEN
 
