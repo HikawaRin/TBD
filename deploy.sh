@@ -8,6 +8,7 @@ git status
 git add results
 git commit -am "Circle CI: auto append"
 git checkout -b circle_ci_release
-git remote set-url origin https://${1}@github.com/HikawaRin/TBD.git
-git push origin
+ls
+git remote add release https://${1}@github.com/HikawaRin/TBD.git
+git push release
 
