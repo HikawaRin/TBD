@@ -3,8 +3,6 @@ echo $1
 git config --global user.email "circle@ci.com"
 git config --global user.name "CI"
 
-pwd
-cd ../
 ls
 git status
 git add results
