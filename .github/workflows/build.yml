@@ -1,0 +1,23 @@
+name: build-reproducible
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Run jobs
+      run: ./TBD.sh all
+      env:
+        CI_NAME: githubaction
+    - name: Move result json files
+      run: mkdir results && mv ./*.json results/
+    - name: Publish results
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: results-githubaction
+        folder: results
