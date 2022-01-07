@@ -7,12 +7,7 @@ jobs:
       - checkout
       - run: ./TBD.sh all
       - run: mkdir results && mv ./*.json results
-      - run: git add results
-      - run: git commit -am "circle: append results"
-      - run: git checkout -b circle_ci_results
-      - run: git remote set-url origin \
-        https://${GITHUB_TOKEN}@github.com/HikawaRin/TBD.git
-      - run: git push origin
+      - run: ./deploy.sh
 workflows:
   build:
     jobs:
