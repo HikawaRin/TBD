@@ -1,4 +1,12 @@
 version: 2.1
+
+workflows:
+  build:
+    jobs:
+      - build:
+        context:
+          - GITHUB
+
 jobs:
   build:
     machine:
@@ -9,9 +17,3 @@ jobs:
       - run: mkdir results && mv ./*.json results
       - run: ./deploy.sh $GITHUB_TOKEN
 
-workflows:
-  build:
-    jobs:
-      - build:
-        context:
-          - GITHUB
