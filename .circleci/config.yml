@@ -3,12 +3,16 @@ jobs:
   build:
     machine:
       image: ubuntu-2004:202010-01
-    resource_class: medium
     steps:
       - checkout
       - run: ./TBD.sh all
       - run: mkdir results && mv ./*.json results
-      - run: ls results
+      - run: git add results
+      - run: git commit -am "circle ci: append results"
+      - run: git checkout -b circle_ci_results
+      - run: git remote set-url origin \
+        https://${GITHUB_TOKEN}@github.com/HikawaRin/TBD.git
+      - run: git push origin
 workflows:
   build:
     jobs:
